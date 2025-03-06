@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { KTX2Loader } from 'three/examples/jsm/loaders/KTX2Loader.js';
-import { EXRLoader } from 'three/examples/jsm/loaders/EXRLoader.js';
+import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader.js';
+// import { EXRLoader } from 'three/examples/jsm/loaders/EXRLoader.js';
 import GUI from 'lil-gui';
 import gsap  from 'gsap';
 import fireworkVertexShader from './shaders/firework/vertex.glsl';
@@ -95,7 +95,8 @@ const scene = new THREE.Scene();
 
 // Loaders
 const textureLoader = new THREE.TextureLoader();
-const exrLoader = new EXRLoader();
+const rgbeLoader = new RGBELoader();
+// const exrLoader = new EXRLoader();
 
 
 
@@ -160,8 +161,8 @@ renderer.setPixelRatio(sizes.pixelRatio);
 const loadEnvironmentMap = async () => {
     try {
         const environmentMap = await new Promise((resolve, reject) => {
-            exrLoader.load(
-                './environmentMap/night_countryside.exr',//.exr
+            rgbeLoader.load(
+                './environmentMap/night_environment.hdr',//.exr
                 resolve,
                 undefined,
                 reject
