@@ -1,1 +1,2 @@
-node_modules/static/environmentMap/night_countryside.exr
+node_modules/
+dist/
